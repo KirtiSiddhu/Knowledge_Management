@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 ">
+    <div class="w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-bold text-center mb-4">Register</h2>
+        <form id="registerForm" class="space-y-4">
+            <div>
+                <label class="block text-gray-700">Username</label>
+                <input type="text" id="username" name="username" class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div>
+                <label class="block text-gray-700">Password</label>
+                <input type="password" id="password" name="password" class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">Register</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            
+            const response = await fetch("register.php", {
+                method: "POST",
+                body: formData
+            });
+
+            try {
+                const result = await response.json();
+                if (result.status === "success") {
+                    alert(result.message); 
+                    window.location.href = result.redirect; 
+                } else {
+                    alert(result.message); 
+                }
+            } catch (error) {
+                alert("An error occurred. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>

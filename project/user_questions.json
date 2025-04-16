@@ -1,0 +1,22 @@
+[
+    {
+        "question": "What is hoisting in Javascript?",
+        "category": "JavaScript",
+        "email": "kumarikritisingh5@gmail.com",
+        "date": "2025-04-11 16:14:18",
+        "status": "answered",
+        "answer": "JavaScript mechanism that moves variable and function declarations to the top of their scope.",
+        "answered_by": "Admin",
+        "answer_date": "2025-04-11 16:16:11"
+    },
+    {
+        "question": "hello",
+        "category": "JavaScript",
+        "email": "kumarikritisingh@gmail.com",
+        "date": "2025-04-11 17:12:02",
+        "status": "answered",
+        "answer": "hii",
+        "answered_by": "Admin",
+        "answer_date": "2025-04-11 17:12:22"
+    }
+]

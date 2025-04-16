@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Management Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+    <div class="grid-container">
+        <header class="header bg-black-300 shadow-lg p-6 text-white relative flex flex-col items-center">
+            <h1 class="text-3xl font-extrabold text-center">Knowledge Management Portal</h1>
+            <div class="horizontal-bar flex space-x-6 mt-2 text-lg">
+                <a href="service.html" class="hover:text-blue-200"><b>Services</b></a>
+                <span>|</span>
+                <a href="contact.html" class="hover:text-blue-200"><b>Contact Info</b></a>
+            </div>
+            <div class="absolute top-4 right-6 text-right">
+                
+                <a href="logout.php" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700">Logout</a>
+            </div>
+        </header>
+
+
+        <aside class="sidebar bg-gray-800 text-white p-4 space-y-3">
+            <a href="index.php" class="sidebar-section block hover:text-gray-300"><b>Knowledge Repository</b></a>
+            <a href="userdashboard.php" class="sidebar-section block hover:text-gray-300"><b>Dashboard</b></a>
+            <a href="project73.html" class="sidebar-section block hover:text-gray-300"><b>Articles & Blogs</b></a>
+            <a href="library.html" class="sidebar-section block hover:text-gray-300"><b>Library</b></a>
+            <a href="event.html" class="sidebar-section block hover:text-gray-300"><b>Events</b></a>
+            <a href="faq.php" class="sidebar-section block hover:text-gray-300"><b>FAQ's</b></a>
+            <a href="traning.php" class="sidebar-section block hover:text-gray-300"><b>Tutorials</b></a>
+        </aside>
+
+        <main class="main-content p-6">
+            <section class="section-one bg-gray-200 p-6 rounded-lg mt-6">
+                <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">Knowledge is the Foundation of Empowerment</h2>
+                <p class="text-gray-700 text-center">
+                    Knowledge enables individuals to understand their rights, advocate for justice, and break down barriers to equality. 
+                    Women’s empowerment is deeply rooted in education and awareness, as informed women can challenge discrimination, 
+                    demand fair treatment, and contribute effectively to society.
+                </p>
+            </section>
+
+            <section class="section-two mt-6 bg-white p-6 rounded-lg shadow relative">
+                <h2 class="text-xl font-semibold text-gray-800 border-b-2 border-gray-500 pb-2 mb-4">Current Affairs</h2>
+                <div class="scroll-container h-96 overflow-hidden relative">
+                    <div class="scroll-content space-y-4">
+                        <div class="p-4 bg-gray-100 rounded-lg">
+                            <h3 class="text-lg font-semibold text-blue-600">Judicial Blocks on Trump Administration Actions</h3>
+                            <p class="text-gray-700">A federal judge has halted Trump's efforts to dismantle the Consumer Financial Protection Bureau (CFPB) and deport alleged gang members.</p>
+                            <a href="https://www.theguardian.com/us-news/live/2025/mar/28/donald-trump-white-house-washington-latest-live-us-politics-news?utm_source=chatgpt.com" class="text-blue-500 hover:underline">Read more</a>
+                        </div>
+                        <div class="p-4 bg-gray-100 rounded-lg">
+                            <h3 class="text-lg font-semibold text-blue-600">U.S. Military Strikes in Yemen</h3>
+                            <p class="text-gray-700">The U.S. launched air and naval strikes against Houthi targets, the largest military operation in the Middle East during Trump’s second term.</p>
+                            <a href="https://en.wikipedia.org/wiki/March_2025_United_States_attacks_in_Yemen?utm_source=chatgpt.com" class="text-blue-500 hover:underline">Read more</a>
+                        </div>
+                        <div class="p-4 bg-gray-100 rounded-lg">
+                            <h3 class="text-lg font-semibold text-blue-600">Earthquakes Devastate Myanmar</h3>
+                            <p class="text-gray-700">Two strong earthquakes in Myanmar have killed at least 694 people and caused major damage in the region.</p>
+                            <a href="https://en.wikipedia.org/wiki/2025_Myanmar_earthquake?utm_source=chatgpt.com" class="text-blue-500 hover:underline">Read more</a>
+                        </div>
+                        <div class="p-4 bg-gray-100 rounded-lg">
+                            <h3 class="text-lg font-semibold text-blue-600">Partial Solar Eclipse Observed Worldwide</h3>
+                            <p class="text-gray-700">A partial solar eclipse was visible across Europe, Asia, Africa, and the Americas, offering a spectacular celestial event.</p>
+                            <a href="https://people.com/how-to-watch-partial-solar-eclipse-march-2025-11693017?utm_source=chatgpt.com" class="text-blue-500 hover:underline">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function startAutoScroll() {
+            const scrollContainer = document.querySelector('.scroll-container');
+            const scrollContent = document.querySelector('.scroll-content');
+
+            let scrollAmount = 0;
+            const speed = 50;
+            const step = 1;
+            const contentHeight = scrollContent.clientHeight;
+            const containerHeight = scrollContainer.clientHeight;
+
+            function scrollUp() {
+                scrollAmount += step;
+                if (scrollAmount >= contentHeight - containerHeight) {
+                    scrollAmount = 0;
+                }
+                scrollContainer.scrollTo({
+                    top: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+
+            setInterval(scrollUp, speed);
+        }
+
+        document.addEventListener('DOMContentLoaded', startAutoScroll);
+
+        let sidebar = document.querySelector('.sidebar');
+        let isMouseInSidebar = false;
+
+        sidebar.addEventListener('mouseenter', function() {
+            isMouseInSidebar = true;
+            sidebar.style.left = '0';
+        });
+
+        sidebar.addEventListener('mouseleave', function() {
+            isMouseInSidebar = false;
+        });
+
+        document.addEventListener('mousemove', function(event) {
+            if (event.clientX <= 50 && !isMouseInSidebar) {
+                sidebar.style.left = '0';
+            } else if (event.clientX > 50 && !isMouseInSidebar) {
+                setTimeout(function() {
+                    if (!isMouseInSidebar) {
+                        sidebar.style.left = '-300px';
+                    }
+                }, 200);
+            }
+        });
+    </script>
+</body>
+</html>  

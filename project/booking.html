@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Room Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 min-h-screen flex flex-col items-center justify-center">
+
+    <!-- Header with Centered Title -->
+    <header class="w-full bg-gray-700 text-white py-4 px-6 fixed top-0 left-0 flex justify-center items-center shadow-md z-10">
+        <h1 class="text-xl font-bold text-center">Library Discussion Room Booking</h1>
+        <a href="library.html" class="absolute right-6 text-white underline hover:text-gray-300">Back To Library</a>
+    </header>
+
+    <!-- Booking Form -->
+    <main class="mt-28 w-full max-w-md mx-auto">
+        <div class="bg-white p-8 rounded-lg shadow-xl">
+            <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">Book a Discussion Room</h2>
+            <form action="book_room.php" method="POST" class="space-y-5">
+
+                <!-- Name -->
+                <div>
+                    <label class="block text-gray-700 font-medium mb-1">Name</label>
+                    <input type="text" name="name" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label class="block text-gray-700 font-medium mb-1">Email</label>
+                    <input type="email" name="email" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <!-- Start Time -->
+                <div>
+                    <label class="block text-gray-700 font-medium mb-1">Start Time</label>
+                    <input type="time" name="start_time" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <!-- End Time -->
+                <div>
+                    <label class="block text-gray-700 font-medium mb-1">End Time</label>
+                    <input type="time" name="end_time" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-200">
+                    Book Now
+                </button>
+
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>

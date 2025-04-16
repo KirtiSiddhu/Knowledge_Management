@@ -1,0 +1,169 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-image: url('first.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar main main"
+        "sidebar main main";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 300px 1fr;
+    height: 100vh;
+    position: relative;
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    color: white;
+    padding: 1rem 1rem;
+    transition: background-color 0.3s ease-in-out, padding 0.3s ease;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.header-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding-left: 300px;
+}
+
+.contact-info {
+    font-size: 1.2rem;
+    font-weight: normal;
+    text-align: right;
+    padding-right: 200px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: lightgrey;
+    background-image: url('sectionbar.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    position: absolute;
+    top: 0;
+    left: -300px;
+    height: calc(100vh - 6rem);
+    width: 300px;
+    transition: left 0.3s ease;
+    z-index: 10;
+}
+
+.sidebar-section {
+    background-color: rgba(224, 224, 224, 0.8);
+    padding: 8px;
+    text-align: center;
+    border-radius: 5px;
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* .main-content {
+    grid-area: main;
+    padding: 1rem;
+    text-align: center;
+    overflow-y: auto;
+    transition: background-color 0.5s ease;
+} */
+.main-content {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* Three-fourths for section one, one-fourth for section two */
+    gap: 20px; /* Optional: Adds space between the two sections */
+    padding: 1rem;
+    text-align: center;
+    overflow-y: auto;
+    transition: background-color 0.5s ease;
+}
+
+.section-one,
+.section-two {
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section-one h2,
+.section-two h2 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.section-one p,
+.section-two p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+
+
+.sidebar-section:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: green;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .grid-container {
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        height: auto;
+    }
+
+    .header-title {
+        padding-left: 20px;
+        font-size: 2rem;  
+    }
+
+    .contact-info {
+        font-size: 1rem;
+        padding-right: 20px;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 250px; 
+        z-index: 10;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar-section {
+        font-size: 0.9rem;
+    }
+
+    .main-content {
+        padding: 1rem;
+        margin-left: 0;  
+    }
+}
+
